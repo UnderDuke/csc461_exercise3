@@ -307,11 +307,23 @@ function interpRect(imagedata,top,bottom,left,right,globals,tlAttribs,trAttribs,
         lVect = Vector.subtract(lVect,worldLoc);
         lVect = Vector.normalize(lVect);
         var NdotL = Vector.dot(lVect,new Vector(0,0,1)); // rect in xy plane
+        var H = Vector2.normalize(globals.lightPos.subtract(worldLoc));
+        var NdotH = Vector.dot(H, new Vector(0,0,1));
+
+        // calc ambient
+        difColor.r += attribs.ambient.r * globals.lightCol.r/255
+        difColor.g += attribs.ambient.g * globals.lightCol.g/255
+        difColor.b += attribs.ambient.b * globals.lightCol.b/255
         
         // calc diffuse color
-        difColor.r = attribs.diffuse.r * globals.lightCol.r/255 * NdotL;
-        difColor.g = attribs.diffuse.g * globals.lightCol.g/255 * NdotL;
-        difColor.b = attribs.diffuse.b * globals.lightCol.b/255 * NdotL;
+        difColor.r += attribs.diffuse.r * globals.lightCol.r/255 * NdotL;
+        difColor.g += attribs.diffuse.g * globals.lightCol.g/255 * NdotL;
+        difColor.b += attribs.diffuse.b * globals.lightCol.b/255 * NdotL;
+
+        // calc specular color
+        difColor.r += attribs.specular.r * globals.lightCol.r/255 * NdotH;
+        difColor.g += attribs.specular.g * globals.lightCol.g/255 * NdotH;
+        difColor.b += attribs.specular.b * globals.lightCol.b/255 * NdotH;
         
         drawPixel(imagedata,pixX,pixY,difColor);
     } // end shade pixel
