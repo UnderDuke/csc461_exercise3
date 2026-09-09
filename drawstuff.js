@@ -407,16 +407,16 @@ function main() {
                     lightCol: new Color(255,255,255)}; // light is white
     var tlAttribs = { diffuse: new Color(0,0,255),
                       ambient: new Color(0,0,255),
-                      specular: new Color(0,0,255)};    // all four rect verts blue
+                      specular: new Color(255,255,255)};    // all four rect verts blue
     var trAttribs = { diffuse: new Color(0,0,255),
-                      ambient: new Color(0,0,255),
+                      ambient: new Color(255,255,255),
                       specular: new Color(0,0,255)};
     var brAttribs = { diffuse: new Color(0,0,255),
-                      ambient: new Color(0,0,255),
-                      specular: new Color(0,0,255)};
+                      ambient: new Color(255,255,255),
+                      specular: new Color(255,255,255)};
     var blAttribs = { diffuse: new Color(0,0,255),
                       ambient: new Color(0,0,255),
-                      specular: new Color(0,0,255)};
+                      specular: new Color(255,255,255)};
     interpRect(imagedata,50,150,50,200,globals,tlAttribs,trAttribs,brAttribs,blAttribs);
     context.putImageData(imagedata,0,0); // display the image in the context
 } // end main
