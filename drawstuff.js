@@ -307,7 +307,7 @@ function interpRect(imagedata,top,bottom,left,right,globals,tlAttribs,trAttribs,
         lVect = Vector.subtract(lVect,worldLoc);
         lVect = Vector.normalize(lVect);
         var NdotL = Vector.dot(lVect,new Vector(0,0,1)); // rect in xy plane
-        var H = Vector.normalize(globals.lightPos.subtract(worldLoc));
+        var H = Vector.normalize(Vector.subtract(globals.lightPos, worldLoc));
         var NdotH = Vector.dot(H, new Vector(0,0,1));
 
         // calc ambient
