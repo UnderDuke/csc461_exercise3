@@ -404,18 +404,18 @@ function main() {
  
     // Define a rectangle in 2D with colors and coords at corners
     var globals = { lightPos: new Vector(125,100,50),  // light over left upper rect
-                    lightCol: new Color(255,255,255)}; // light is white
+                    lightCol: new Color(0,255,125)}; // light is white
     var tlAttribs = { diffuse: new Color(0,0,255),
                       ambient: new Color(0,0,255),
                       specular: new Color(255,255,255)};    // all four rect verts blue
     var trAttribs = { diffuse: new Color(0,0,255),
-                      ambient: new Color(255,255,255),
+                      ambient: new Color(0,0,100),
                       specular: new Color(0,0,255)};
     var brAttribs = { diffuse: new Color(0,0,255),
-                      ambient: new Color(255,255,255),
+                      ambient: new Color(0,0,100),
                       specular: new Color(255,255,255)};
     var blAttribs = { diffuse: new Color(0,0,255),
-                      ambient: new Color(0,0,255),
+                      ambient: new Color(0,0,100),
                       specular: new Color(255,255,255)};
     interpRect(imagedata,50,150,50,200,globals,tlAttribs,trAttribs,brAttribs,blAttribs);
     context.putImageData(imagedata,0,0); // display the image in the context
